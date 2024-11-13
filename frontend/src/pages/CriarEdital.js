@@ -20,7 +20,7 @@ const CriarEdital = () => {
   const handleAddPergunta = () => {
     setFormData((prevState) => ({
       ...prevState,
-      perguntas: [...prevState.perguntas, { texto: '', tipo: 'texto_curto' }],
+      perguntas: [...prevState.perguntas, { texto: '', tipo: 'texto_curto', obrigatorio: false }],
     }));
   };
 
@@ -40,7 +40,7 @@ const CriarEdital = () => {
   const handleAddDocumento = () => {
     setFormData((prevState) => ({
       ...prevState,
-      documentos_exigidos: [...prevState.documentos_exigidos, { nome: '', descricao: '' }],
+      documentos_exigidos: [...prevState.documentos_exigidos, { nome: '', descricao: '', obrigatorio: false }],
     }));
   };
 
@@ -139,6 +139,14 @@ const CriarEdital = () => {
                 <option value="sim_nao">Sim/Não</option>
                 <option value="numero">Número</option>
               </select>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={pergunta.obrigatorio}
+                  onChange={(e) => handlePerguntaChange(index, 'obrigatorio', e.target.checked)}
+                />
+                Obrigatório
+              </label>
               <button type="button" onClick={() => handleRemovePergunta(index)}>Remover</button>
             </div>
           ))}
@@ -163,6 +171,14 @@ const CriarEdital = () => {
                 onChange={(e) => handleDocumentoChange(index, 'descricao', e.target.value)}
                 required
               ></textarea>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={documento.obrigatorio}
+                  onChange={(e) => handleDocumentoChange(index, 'obrigatorio', e.target.checked)}
+                />
+                Obrigatório
+              </label>
               <button type="button" onClick={() => handleRemoveDocumento(index)}>Remover</button>
             </div>
           ))}

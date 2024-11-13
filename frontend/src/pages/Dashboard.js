@@ -12,7 +12,7 @@ const Dashboard = () => {
   }
 
   const decodedToken = jwtDecode(token); // Decodificando o token
-  console.log(decodedToken);  // Verifique o conteúdo do token no console
+  //console.log(decodedToken);
 
   const tipoUsuario = decodedToken.tipo_usuario;
   const nome = decodedToken.nome_completo; // Pengando o nome do usuário do token para colocar no display

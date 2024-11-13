@@ -9,17 +9,17 @@ const editalSchema = new mongoose.Schema({
   data_fim_inscricao: { type: Date, required: true },
   maximo_alunos_aprovados: { type: Number, default: null },
   documentos_exigidos: [{
-    nome: { type: String, required: true }, // Nome do documento
-    descricao: { type: String, required: true }, // Descrição do documento
+    nome: { type: String, required: true },
+    descricao: { type: String, required: true },
   }],
   status: { type: String, default: 'ativo' },
   perguntas: [{
-    texto: { type: String, required: true }, // Texto da pergunta
-    tipo: { type: String, required: true }, // Tipo da pergunta
-    campo: String, // Opcional: campo adicional, caso necessário
-    opcoes: [String], // Opcional: usado para perguntas com opções, como Sim/Não
+    texto: { type: String, required: true },
+    tipo: { type: String, required: true },
+    campo: String,
+    opcoes: [String],
     obrigatorio: { type: Boolean, default: true },
   }],
-});
+}, { collection: 'editals' }); // Define a coleção explicitamente como 'editals'
 
 module.exports = mongoose.model('Edital', editalSchema);

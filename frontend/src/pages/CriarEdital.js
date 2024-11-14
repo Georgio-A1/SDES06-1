@@ -64,7 +64,13 @@ const CriarEdital = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    // Verificar se a data de fim é posterior à data de início
+    if (new Date(formData.data_fim_inscricao) < new Date(formData.data_inicio_inscricao)) {
+      alert("A data de fim da inscrição não pode ser anterior à data de início.");
+      return; // Parar o envio do formulário
+    }
+  
     try {
       await axios.post('http://localhost:5000/api/editais/cadastrar', formData, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },

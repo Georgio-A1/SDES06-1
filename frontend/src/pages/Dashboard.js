@@ -12,10 +12,8 @@ const Dashboard = () => {
   }
 
   const decodedToken = jwtDecode(token); // Decodificando o token
-  //console.log(decodedToken);
-
   const tipoUsuario = decodedToken.tipo_usuario;
-  const nome = decodedToken.nome_completo; // Pengando o nome do usuário do token para colocar no display
+  const nome = decodedToken.nome_completo; // Pegando o nome do usuário do token para colocar no display
 
   // Função de logout
   const handleLogout = () => {
@@ -55,6 +53,7 @@ const Dashboard = () => {
           <button onClick={() => navigate('/cadastrar-usuario')}>Cadastrar Usuário</button>
           <button onClick={() => navigate('/avaliar-documentos')}>Avaliar Documentos</button>
           <button onClick={() => navigate('/avaliar-inscricao')}>Avaliar Inscrição</button>
+          <button onClick={() => navigate('/responder-chamados')}>Responder Chamados</button> {/* Novo botão */}
         </div>
       )}
     </div>

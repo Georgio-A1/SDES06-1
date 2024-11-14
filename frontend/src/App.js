@@ -9,6 +9,8 @@ import ExcluirEdital from './pages/ExcluirEdital';
 import EditarEdital from './pages/EditarEdital';
 import ListaEditais from './pages/ListaEditais';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminPage from './pages/AdminPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 import './App.css';
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
       <Routes>
         <Route path="/" element={token ? <Navigate to="/dashboard" /> : <HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
+
         <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} />} />
         <Route path="/cadastrar-usuario" element={<CadastrarUsuario />} />
         <Route path="/criar-edital" element={<CriarEdital />} />
@@ -27,6 +31,8 @@ function App() {
         <Route path="/editar-edital" element={<ProtectedRoute element={<ListaEditais />} />} />
         
         <Route path="/editar-edital/:id" element={<ProtectedRoute element={<EditarEdital />} />} />
+        
+        <Route path="/responder-chamados" element={<ProtectedRoute element={<AdminPage />} />} />
 
       
         <Route path="*" element={<Navigate to="/" replace />} />

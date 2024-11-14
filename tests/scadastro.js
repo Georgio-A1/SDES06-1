@@ -5,7 +5,7 @@ require('chromedriver');
     let driver = await new Builder().forBrowser('chrome').build();
 
     try {
-        await driver.get('http://localhost:3000/login');  // Ajuste a URL conforme necessário
+        await driver.get('http://localhost:3000/login');
 
         // Efetua login
         await driver.findElement(By.css('input[type="text"]')).sendKeys('56789012345'); // CPF

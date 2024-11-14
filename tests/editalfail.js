@@ -5,7 +5,7 @@ require('chromedriver');
     let driver = await new Builder().forBrowser('chrome').build();
 
     try {
-        // Passo 1: Acesse a página de login
+        // Passo 1: Acessa a página de login
         await driver.get('http://localhost:3000/login'); 
         
         // Encontra os campos de CPF e senha e insire as credenciais

@@ -5,7 +5,7 @@ require('chromedriver');
     let driver = await new Builder().forBrowser('chrome').build();
 
     try {
-        await driver.get('http://localhost:3000/login');  // Ajuste a URL conforme necessário
+        await driver.get('http://localhost:3000/login'); 
 
         // Efetua login
         await driver.findElement(By.id('cpf')).sendKeys('56789012345');
@@ -17,7 +17,7 @@ require('chromedriver');
         await driver.wait(until.elementLocated(By.xpath("//button[contains(text(),'Criar Edital')]")), 10000);
         await driver.findElement(By.xpath("//button[contains(text(),'Criar Edital')]")).click();
 
-        // Preencha o formulário de criação de edital
+        // Preenche o formulário de criação de edital
         await driver.findElement(By.name('nome_bolsa')).sendKeys('Bolsa do Selenium');
         await driver.findElement(By.name('descricao')).sendKeys('Bolsa criada pelo teste do selenium');
         await driver.findElement(By.name('criterios_elegibilidade')).sendKeys('Ser aluno');
@@ -37,7 +37,7 @@ require('chromedriver');
         
         await driver.findElement(By.name('maximo_alunos_aprovados')).sendKeys('25');
 
-        // Localize e clique no botão para adicionar pergunta
+        // Localiza e clique no botão para adicionar pergunta
         await driver.sleep(1000);
         await driver.wait(until.elementLocated(By.xpath("//button[contains(text(),'Adicionar Pergunta')]")), 10000);
         await driver.findElement(By.xpath("//button[contains(text(),'Adicionar Pergunta')]")).click();

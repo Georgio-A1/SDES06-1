@@ -6,7 +6,7 @@ require('chromedriver');
 
     try {
         // Passo 1: Realiza o login como admin
-        await driver.get('http://localhost:3000/login'); // Ajuste a URL conforme necessário
+        await driver.get('http://localhost:3000/login');
 
         // Efetua login
         await driver.findElement(By.id('cpf')).sendKeys('56789012345');
@@ -17,7 +17,7 @@ require('chromedriver');
         await driver.wait(until.urlContains('/dashboard'), 10000);
 
         // Passo 2: Acessa a página de exclusão de editais
-        await driver.get('http://localhost:3000/excluir-edital'); // Ajuste a URL conforme necessário
+        await driver.get('http://localhost:3000/excluir-edital');
 
         // Passo 3: Espera até que o nome do edital "Bolsa do Selenium" esteja visível
         let editalToExcluir = await driver.wait(

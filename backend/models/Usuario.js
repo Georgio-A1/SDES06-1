@@ -1,11 +1,10 @@
-// backend/models/Usuario.js
-const client = require('../config/db'); // Importa o cliente do PostgreSQL
+const { client } = require('../config/db'); // Certifique-se de importar corretamente o client do db.js
 const bcrypt = require('bcrypt');
 
 // Função para criptografar e salvar um novo usuário
 const inserirUsuario = async ({ cpf, email, nome_completo, matricula, numero_celular, endereco, senha, tipo_usuario }) => {
   const senhaHash = await bcrypt.hash(senha, 10);
-  
+
   const insertQuery = `
     INSERT INTO usuarios (cpf, email, nome_completo, matricula, numero_celular, endereco, senha, tipo_usuario)
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
